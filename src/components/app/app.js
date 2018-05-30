@@ -9,7 +9,7 @@ class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <h1>To-Do App</h1>
+              <h1>Budget Tracker</h1>
             </header>
             <Route 
               exact
