@@ -1,0 +1,13 @@
+@import 'vars';
+
+html,body {
+  background: $background-color;
+}
+
+h1 {
+  color: $font-color;
+}
+
+input {
+  margin-right: 10px;
+}

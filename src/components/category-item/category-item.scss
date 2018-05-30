@@ -1,0 +1,16 @@
+.category {
+  width: 40%;
+  margin: 10px auto;
+  border: 5px groove #3F71B4;
+  background-color: #0A2A56;
+  padding: 10px;
+}
+
+.category h1 {
+  font-style: italic;
+}
+
+.category-display * {
+  display: inline-block;
+  margin: 5px;
+ }
