@@ -1,31 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import CardForm from '../card-form/cardForm';
-import * as cardActions from '../../actions/card';
+import ExpenseForm from '../expense-form/expenseForm';
+import * as expenseActions from '../../actions/expense';
 
-class CardItem extends React.Component {
+class ExpenseItem extends React.Component {
   render() {
-    const { card, cardDestroy, cardUpdate } = this.props;
+    const { expense, expenseDestroy, expenseUpdate } = this.props;
     return (
-      <div className="card">
-        <p>{card.content}</p>
-        <button onClick={() => cardDestroy(card)}></button>
-        <CardForm card={card} onComplete={cardUpdate}/>
+      <div className="expense">
+        <p>{expense.content}</p>
+        <button onClick={() => expenseDestroy(expense)}></button>
+        <ExpenseForm expense={expense} onComplete={expenseUpdate}/>
       </div>
     );
   }
 }
 
-CardItem.propTypes = {
+ExpenseItem.propTypes = {
   card: PropTypes.object,
   cardUpdate: PropTypes.func,
   cardDestroy: PropTypes.func,
 };
 
 const mapDispatchToProps = dispatch => ({
-  cardDestroy: data => dispatch(cardActions.destroy(data)),
-  cardUpdate: data => dispatch(cardActions.update(data)),
+  expenseDestroy: data => dispatch(expenseActions.destroy(data)),
+  expenseUpdate: data => dispatch(expenseActions.update(data)),
 });
 
-export default connect(null, mapDispatchToProps)(CardItem);
+export default connect(null, mapDispatchToProps)(ExpenseItem);

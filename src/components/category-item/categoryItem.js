@@ -3,19 +3,24 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CategoryForm from '../category-form/categoryForm';
 import * as categoryActions from '../../actions/category';
-import * as cardActions from '../../actions/card';
-import CardForm from '../card-form/cardForm';
-import CardItem from '../card-item/cardItem';
+import * as expenseActions from '../../actions/expense';
+import ExpenseForm from '../expense-form/expenseForm';
+import ExpenseItem from '../expense-item/expenseItem';
 
 import './category-item.scss';
 
 class CategoryItem extends React.Component {
   render() {
     const {
-      category, key, categoryDestroy, categoryUpdate, cards, cardCreate,
+      category, 
+      key, 
+      categoryDestroy, 
+      categoryUpdate, 
+      expenses, 
+      expenseCreate,
     } = this.props;
-    
-    const categoryCards = cards[category.id];
+
+    const categoryExpenses = expenses[category.id];
 
     return (
       <div className="category" key={key}>
@@ -24,10 +29,10 @@ class CategoryItem extends React.Component {
           <CategoryForm category={category} onComplete={categoryUpdate}/>
           <button className="delete" onClick={() => categoryDestroy(category)}>Delete</button>
         </div>
-        <CardForm category={category} onComplete={cardCreate}/>
+        <ExpenseForm category={category} onComplete={expenseCreate}/>
         <div className="card-list">
         {
-          categoryCards.map((card, i) => <CardItem card={card} key={i}/>)
+          categoryExpenses.map(expense => <ExpenseItem expense={expense} key={expense.id}/>)
         }
         </div>
       </div>
@@ -36,6 +41,8 @@ class CategoryItem extends React.Component {
 }
 
 CategoryItem.propTypes = {
+  cards: PropTypes.object,
+  cardCreate: PropTypes.func,
   category: PropTypes.object,
   key: PropTypes.number,
   categoryRemove: PropTypes.func,
@@ -43,12 +50,12 @@ CategoryItem.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  cards: state.cards,
+  expenses: state.expenses,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    cardCreate: data => dispatch(cardActions.create(data)),
+    expenseCreate: data => dispatch(expenseActions.create(data)),
     categoryDestroy: data => dispatch(categoryActions.destroy(data)),
     categoryUpdate: data => dispatch(categoryActions.update(data)),
   };

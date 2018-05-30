@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import categoryReducer from './category';
-import cardReducer from './card';
+import categories from './category';
+import expenses from './expense';
 
 export default combineReducers({
-  categoryReducer, cardReducer,
+  categories, expenses,
 });

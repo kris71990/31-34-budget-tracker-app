@@ -24,12 +24,7 @@ class CategoryForm extends React.Component {
 
   handleChange(e) {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
-  }
-
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.category) return nextProps.category;
-    return defaultState;
+    return this.setState({ [name]: value });
   }
 
   render() {
