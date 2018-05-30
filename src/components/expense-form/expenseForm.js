@@ -31,14 +31,21 @@ class ExpenseForm extends React.Component {
 
   render() {
     const { expense } = this.props;
-    const buttonText = expense ? 'Update Card' : 'Create Card';
+    const buttonText = expense ? 'Update Expense' : 'Create Expense';
     return (
       <form className="expense-form" onSubmit={this.handleSubmit}>
         <input
           type="text"
-          name="content"
-          placeholder="content"
-          value={this.state.content}
+          name="name"
+          placeholder="expense"
+          value={this.state.name}
+          onChange={this.handleChange}
+        />
+        <input
+          type="text"
+          name="price"
+          placeholder="$"
+          value={this.state.price}
           onChange={this.handleChange}
         />
         <button type="submit">{buttonText}</button>
