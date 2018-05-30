@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
 
+import './category-form.scss';
+
 const defaultState = {
   name: '',
   budget: '',

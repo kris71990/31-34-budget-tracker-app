@@ -5,6 +5,8 @@ import * as categoryActions from '../../actions/category';
 import CategoryForm from '../category-form/categoryForm';
 import CategoryItem from '../category-item/categoryItem';
 
+import './dashboard.scss';
+
 class Dashboard extends React.Component {
   render() {
     const { categories, categoryCreate } = this.props;

@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Dashboard from '../dashboard/dashboard';
 
+import './app.scss';
+
 class App extends React.Component {
   render() {
     return (

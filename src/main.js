@@ -6,6 +6,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './components/app/app';
 import categoryReducer from './reducers/category';
 
+import './style/main.scss';
+
 const middleware = {};
 const store = createStore(categoryReducer, composeWithDevTools(applyMiddleware(...middleware)));
 

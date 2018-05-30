@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import CategoryForm from '../category-form/categoryForm';
 import * as categoryActions from '../../actions/category';
 
+import './category-item.scss';
+
 class CategoryItem extends React.Component {
   render() {
     const {
@@ -11,9 +13,9 @@ class CategoryItem extends React.Component {
     } = this.props;
     return (
       <div className="category" key={key}>
-        <h1>{category.name}</h1>
-        <button onClick={() => categoryDestroy(category)}>Delete</button>
+        <h1>{category.name} - ${category.budget}</h1>
         <CategoryForm category={category} onComplete={categoryUpdate}/>
+        <button className="delete" onClick={() => categoryDestroy(category)}>Delete</button>
       </div>
     );
   }
