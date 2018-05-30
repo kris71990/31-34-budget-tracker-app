@@ -19,11 +19,17 @@ class CategoryForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.onComplete(this.state);
+    this.setState(defaultState);
   }
 
   handleChange(e) {
     const { name, value } = e.target;
     this.setState({ [name]: value });
+  }
+
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.category) return nextProps.category;
+    return defaultState;
   }
 
   render() {
