@@ -20,9 +20,9 @@ class ExpenseItem extends React.Component {
 }
 
 ExpenseItem.propTypes = {
-  card: PropTypes.object,
-  cardUpdate: PropTypes.func,
-  cardDestroy: PropTypes.func,
+  expense: PropTypes.object,
+  expenseUpdate: PropTypes.func,
+  expenseDestroy: PropTypes.func,
 };
 
 const mapDispatchToProps = dispatch => ({
