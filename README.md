@@ -25,6 +25,8 @@ Provider
     Dashboard
       CategoryForm 
         CategoryItem[Category Form]
+          ExpenseForm
+            ExpenseItem[Expense Form]
 ```
 
 - Provider - parent wrapper component redux uses to manage the application state
@@ -37,8 +39,18 @@ Provider
   - Field 1 
     - Name - name of category of expenses
   - Field 2
-    - Budget - Amount of money ($) dedicated to each expense
+    - Budget - Amount of money ($) dedicated to each category of expenses
 
 - CategoryItem
-  - Displays category and budget of a single expense item
+  - Displays category and budget of a single category of expenses
   - Also renders the CategoryForm component for ability to edit or delete the item
+
+- ExpenseForm
+  - Field 1
+    - Name - name of an expense
+  - Field 2
+    - Price - price of a single expense
+
+- ExpenseItem 
+  - Displays an expense and price of a single expense item
+  - Also renders an ExpenseForm component for the ability to edit or delete an expense
