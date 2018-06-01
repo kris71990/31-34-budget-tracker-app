@@ -6,11 +6,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from './components/app/app';
 import reducer from '../src/reducers/main';
+import logger from './lib/redux-logger';
+import storage from './lib/local-storage';
 
 import './style/main.scss';
 
-const middleware = {};
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(...middleware)));
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(logger, storage)));
 
 const container = document.createElement('div');
 document.body.appendChild(container);
